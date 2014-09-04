@@ -1,7 +1,7 @@
 utilities for automating common trello tasks. 
 
 # trello-copy.rb
-Creates a new board and moves the backlog cards from a source board to the newley created board
+Creates a new board and moves the backlog cards from a source board to the newly created board
 
 ### Install
     git clone https://github.com/udryan10/trello-automation.git
