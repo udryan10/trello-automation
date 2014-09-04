@@ -1,5 +1,3 @@
-# url to get access key:
-# https://trello.com/1/authorize?key=98351e8801b659e91fb49889780f96b0&scope=read%2Cwrite&name=Trello+Automation&expiration=never&response_type=token
 require 'trello'
 require 'trollop'
 require 'yaml'
