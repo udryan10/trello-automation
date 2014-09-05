@@ -3,7 +3,7 @@ require 'trollop'
 require 'yaml'
 
 
-config = $config = YAML.load(File.open('tokens.yml'))
+config =  YAML.load(File.open('tokens.yml'))
 
 if config['member_token'].empty? or config['member_token'].nil?
   puts "Error: Please put your member key in tokens.yml"
@@ -21,9 +21,9 @@ end
 Trollop::die :from, "You must specify the name of a board to copy from" unless opts[:from]
 Trollop::die :to, "You must specify the name of the board that will be created" unless opts[:to]
 
-Trello.configure do |config|
-  config.developer_public_key = config['developer_key'] 
-  config.member_token = config['member_token']
+Trello.configure do |c|
+  c.developer_public_key = config['developer_key'] 
+  c.member_token = config['member_token']
 end
 
 me = Trello::Member.find("me")
@@ -74,7 +74,7 @@ if opts[:copy_backlog]
   backlog_list.cards.each do |backlog_card|
     backlog_card.move_to_board(new_board,new_backlog_list)
     move_count += 1
-  end
+  end rescue nil
   
   puts "moved #{move_count} backlog items to new backlog list on board #{new_board.name}"
 end
